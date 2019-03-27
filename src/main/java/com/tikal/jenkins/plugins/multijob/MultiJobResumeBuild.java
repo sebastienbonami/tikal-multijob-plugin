@@ -20,7 +20,7 @@ public class MultiJobResumeBuild implements RunAction2, StaplerProxy {
     }
 
     public String getIconFileName() {
-        return Jenkins.getInstance().hasPermission(Job.BUILD) ? "plugin/jenkins-multijob-plugin/tool32.png" : null;
+        return Jenkins.getInstance().hasPermission(Jenkins.ADMINISTER) ? "plugin/jenkins-multijob-plugin/tool32.png" : null;
 	}
 
     public String getDisplayName() {
@@ -70,7 +70,7 @@ public class MultiJobResumeBuild implements RunAction2, StaplerProxy {
 
     @Override
     public Object getTarget() {
-        Jenkins.getInstance().checkPermission(Job.BUILD);
+        Jenkins.getInstance().checkPermission(Jenkins.ADMINISTER);
         return this;
     }
 }
